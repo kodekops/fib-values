@@ -6,7 +6,7 @@ export default function NavBar() {
       <nav className="navbar navbar-expand bg-body-tertiary bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Fib Finder
+            Fib Finder(v2)
           </Link>
           <button
             className="navbar-toggler"
