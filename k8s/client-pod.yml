@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: client
+spec:
+  containers:
+    - name: client
+      image: kodega2016/multi-client
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 3000
