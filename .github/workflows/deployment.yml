@@ -23,4 +23,4 @@ jobs:
           context: ./worker
           file: ./worker/Dockerfile
           push: true
-          tags: latest
+          tags: ${{secrets.DOCKER_USERNAME}}/multi-worker:latest
