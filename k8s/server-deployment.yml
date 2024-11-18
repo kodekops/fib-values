@@ -27,7 +27,10 @@ spec:
             - name: POSTGRES_USER
               value: postgres
             - name: POSTGRES_PASSWORD
-              value: postgres_password
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: POSTGRES_PASSWORD
             - name: POSTGRES_HOST
               value: postgres-clusterip-service
             - name: POSTGRES_PORT
