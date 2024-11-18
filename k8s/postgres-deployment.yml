@@ -24,11 +24,17 @@ spec:
           ports:
             - containerPort: 5432
           env:
+            - name: POSTGRES_USER
+              value: postgres
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: pgpassword
                   key: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
 
           volumeMounts:
             - name: postgres-storage
