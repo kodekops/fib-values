@@ -19,6 +19,21 @@ spec:
           image: kodega2016/multi-server
           ports:
             - containerPort: 8080
+          env:
+            - name: REDIS_HOST
+              value: redis-clusterip-service
+            - name: REDIS_PORT
+              value: "6379"
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres_password
+            - name: POSTGRES_HOST
+              value: postgres-clusterip-service
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_DATABASE
+              value: postgres
 ---
 apiVersion: v1
 kind: Service
