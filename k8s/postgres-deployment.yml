@@ -14,12 +14,22 @@ spec:
       labels:
         app: postgres
     spec:
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: database-persistent-volume-claim
       containers:
         - name: postgres
           image: postgres
+          ports:
+            - containerPort: 5432
           env:
             - name: POSTGRES_PASSWORD
               value: postgres_password
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+              subPath: postgres
 ---
 apiVersion: v1
 kind: Service
